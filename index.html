@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Stephen Mwaniki — Portfolio</title>
+  <meta name="description" content="Stephen Mwaniki — IT Support & Cybersecurity Enthusiast. Projects, services, and contact." />
+  <meta property="og:title" content="Stephen Mwaniki — Portfolio" />
+  <meta property="og:description" content="IT Support & Cybersecurity Enthusiast. Projects, services, and contact." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="assets/og-image.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="icon" href="assets/favicon.png" />
+  <style>
+    :root{
+      --bg: #0b0f14;          /* dark base */
+      --card: #10161d;        /* card base */
+      --text: #e7edf3;        /* main text */
+      --muted: #a4b1bf;       /* secondary */
+      --brand: #2ea0ff;       /* accent */
+      --brand-2:#7cc4ff;      /* gradient */
+      --ring: rgba(46,160,255,.35);
+      --shadow: 0 10px 25px rgba(0,0,0,.35);
+    }
+    [data-theme="light"]{
+      --bg: #f6f9fc;
+      --card:#ffffff;
+      --text:#0e141b;
+      --muted:#4a5b70;
+      --brand:#0a74da;
+      --brand-2:#66a8ff;
+      --ring: rgba(10,116,218,.28);
+      --shadow: 0 8px 22px rgba(16,24,40,.08);
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0; font: 16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,"Helvetica Neue",Arial; 
+      color:var(--text); background:linear-gradient(180deg, var(--bg), #0b0f14 55%);
+      letter-spacing:.2px;
+    }
+    .container{max-width:1100px; margin:0 auto; padding:24px;}
+    header{position:sticky; top:0; z-index:50; backdrop-filter:saturate(140%) blur(8px); background:color-mix(in oklab, var(--bg) 85%, transparent); border-bottom:1px solid color-mix(in oklab, var(--muted) 20%, transparent)}
+    .nav{display:flex; align-items:center; justify-content:space-between; gap:16px;}
+    .brand{display:flex; align-items:center; gap:10px; font-weight:700;}
+    .brand .dot{width:10px; height:10px; border-radius:999px; background:radial-gradient(circle at 30% 30%, var(--brand-2), var(--brand)); box-shadow:0 0 0 6px var(--ring)}
+    .nav a{color:var(--text); text-decoration:none}
+    .nav ul{display:flex; gap:18px; list-style:none; padding:0; margin:0}
+    .btn{display:inline-flex; align-items:center; gap:8px; background:linear-gradient(135deg,var(--brand), var(--brand-2)); color:white; border:none; padding:10px 14px; border-radius:14px; box-shadow:var(--shadow); cursor:pointer; text-decoration:none; font-weight:600}
+    .ghost{background:transparent; border:1px solid color-mix(in oklab, var(--muted) 30%, transparent); color:var(--text)}
+    .hero{display:grid; grid-template-columns:1.2fr .8fr; gap:28px; align-items:center; padding:32px 0}
+    .hero .card{background:linear-gradient(180deg, color-mix(in oklab, var(--card) 92%, transparent), color-mix(in oklab, var(--card) 85%, transparent)); border:1px solid color-mix(in oklab, var(--muted) 18%, transparent); border-radius:24px; padding:26px; box-shadow:var(--shadow)}
+    h1{font-size:40px; line-height:1.15; margin:0 0 10px}
+    h2{font-size:22px; margin:0 0 12px}
+    p.lead{color:var(--muted); font-size:18px; margin:0 0 18px}
+    .row{display:grid; grid-template-columns:repeat(3,1fr); gap:18px}
+    .card{background:var(--card); border:1px solid color-mix(in oklab, var(--muted) 18%, transparent); border-radius:22px; padding:18px; box-shadow:var(--shadow)}
+    .kpis{display:flex; gap:18px; flex-wrap:wrap}
+    .kpis .pill{padding:8px 12px; border-radius:999px; border:1px solid color-mix(in oklab, var(--muted) 25%, transparent); color:var(--muted); font-weight:600}
+    .grid{display:grid; grid-template-columns:repeat(2,1fr); gap:16px}
+    .project h3{margin:.2rem 0 .3rem}
+    .muted{color:var(--muted)}
+    .section{padding:8px 0 24px}
+    .badge{display:inline-block; padding:8px 10px; border-radius:999px; background:color-mix(in oklab, var(--brand) 12%, transparent); color:var(--brand); border:1px solid color-mix(in oklab, var(--brand) 35%, transparent); font-weight:700; font-size:12px; letter-spacing:.3px}
+    .links{display:flex; gap:10px; flex-wrap:wrap}
+    footer{padding:26px 0 48px; color:var(--muted); text-align:center}
+    .actions{display:flex; gap:10px; flex-wrap:wrap}
+    .hide-desktop{display:none}
+    @media (max-width: 900px){
+      .hero{grid-template-columns:1fr}
+      .row{grid-template-columns:1fr}
+      .grid{grid-template-columns:1fr}
+      .hide-desktop{display:block}
+    }
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Stephen Mwaniki Mleghwa",
+    "jobTitle": "IT Support & Cybersecurity Enthusiast",
+    "address": {"@type":"PostalAddress","addressLocality":"Nairobi","addressCountry":"KE"},
+    "email": "mailto:stephenbranny@gmail.com",
+    "url": "https://stephennafula.github.io",
+    "sameAs": [
+      "https://www.linkedin.com/in/mwanikistephen",
+      "https://github.com/StephenNafula"
+    ]
+  }
+  </script>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <div class="brand"><span class="dot"></span> <a href="#">Stephen Mwaniki</a></div>
+      <nav aria-label="Primary">
+        <ul>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="actions">
+        <a class="btn ghost" href="assets/Stephen_Mwaniki_Portfolio_OnePage.pdf" target="_blank" rel="noopener">One‑Page PDF</a>
+        <a class="btn" href="assets/Stephen_Mwaniki_Portfolio.pdf" target="_blank" rel="noopener">Full Portfolio</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <div class="card">
+        <span class="badge">Available for Work</span>
+        <h1>IT Support & Cybersecurity Enthusiast</h1>
+        <p class="lead">
+          I help people and small teams solve real tech problems — from reliable IT support and WordPress sites to
+          hands‑on security labs and Python/Django tools.
+        </p>
+        <div class="kpis" role="list" aria-label="Quick facts">
+          <span class="pill">Nairobi, Kenya</span>
+          <span class="pill">Founder — RemoteFix Tech Services</span>
+          <span class="pill">Redynox Cybersecurity Intern (2025)</span>
+        </div>
+        <div class="actions" style="margin-top:14px">
+          <a class="btn" href="https://wa.me/254769173792" target="_blank" rel="noopener" aria-label="WhatsApp Stephen">WhatsApp Me</a>
+          <a class="btn ghost" href="#projects">See Projects</a>
+        </div>
+      </div>
+      <div class="card">
+        <h2>Skills Snapshot</h2>
+        <p class="muted">IT Support · pfSense · Kali · Linux (Ubuntu/CentOS) · VirtualBox · WordPress · Python/Django · Java (basics) · SQL · Git/GitHub · SEO basics</p>
+        <div class="grid" style="margin-top:8px">
+          <div class="card" style="border-radius:16px">
+            <strong>Networking</strong>
+            <p class="muted">LAN/WAN, routing through pfSense, basic monitoring.</p>
+          </div>
+          <div class="card" style="border-radius:16px">
+            <strong>Web</strong>
+            <p class="muted">WordPress setup, themes, essential pages, basic SEO.</p>
+          </div>
+          <div class="card" style="border-radius:16px">
+            <strong>Security</strong>
+            <p class="muted">Home/SMB hardening checklists, account security.</p>
+          </div>
+          <div class="card" style="border-radius:16px">
+            <strong>Automation</strong>
+            <p class="muted">Python scripts for logs, simple ETL & reporting.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects" class="section">
+      <h2>Projects</h2>
+      <div class="row">
+        <article class="card project">
+          <span class="badge">Completed</span>
+          <h3>Cybersecurity Lab with pfSense</h3>
+          <p class="muted">Firewall/router with LAN/WAN, Kali routed through pfSense; foundation for IDS/IPS.
+          </p>
+          <div class="links">
+            <a class="btn ghost" href="https://github.com/StephenNafula/cybersecurity-internship-report-redynox" target="_blank" rel="noopener">Lab & Report</a>
+          </div>
+        </article>
+        <article class="card project">
+          <span class="badge">Completed</span>
+          <h3>Log Analyzer & Event Viewer</h3>
+          <p class="muted">Django app to collect, normalize, search logs with simple, Splunk‑inspired dashboards.</p>
+          <div class="links">
+            <a class="btn ghost" href="https://github.com/StephenNafula/log-analyzer" target="_blank" rel="noopener">GitHub Repo</a>
+          </div>
+        </article>
+        <article class="card project">
+          <span class="badge">In Progress</span>
+          <h3>WordPress LMS Site</h3>
+          <p class="muted">Learning platform with courses, users, and essential pages; MVP targeting 1–2 demo courses.</p>
+          <div class="links">
+            <a class="btn ghost" href="#" aria-disabled="true">Staging — coming soon</a>
+          </div>
+        </article>
+        <article class="card project">
+          <span class="badge">Planning</span>
+          <h3>Secure File Storage (RBAC + Encryption)</h3>
+          <p class="muted">Upload/download with encryption at rest, role‑based permissions, and audit trail.</p>
+          <div class="links">
+            <a class="btn ghost" href="#" aria-disabled="true">Repo — coming soon</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="services" class="section">
+      <h2>Services</h2>
+      <div class="row">
+        <div class="card">
+          <h3>On‑site IT Support</h3>
+          <p class="muted">Hardware diagnostics, OS installs, driver issues, small network setup.</p>
+        </div>
+        <div class="card">
+          <h3>Remote Software Setup</h3>
+          <p class="muted">Security tools, productivity suites, backups, basic automation.</p>
+        </div>
+        <div class="card">
+          <h3>Websites (WordPress)</h3>
+          <p class="muted">Theme configuration, essential pages, basic SEO for visibility.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="section">
+      <h2>Contact</h2>
+      <div class="card">
+        <p class="muted">Let’s build something useful together. Reach me via any channel below.</p>
+        <div class="actions">
+          <a class="btn" href="mailto:stephenbranny@gmail.com">Email</a>
+          <a class="btn ghost" href="https://www.linkedin.com/in/mwanikistephen" target="_blank" rel="noopener">LinkedIn</a>
+          <a class="btn ghost" href="https://github.com/StephenNafula" target="_blank" rel="noopener">GitHub</a>
+          <a class="btn" href="https://wa.me/254769173792" target="_blank" rel="noopener">WhatsApp</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <small>© <span id="year"></span> Stephen Mwaniki • Built with HTML/CSS • Deployed on GitHub Pages</small>
+    </div>
+  </footer>
+
+  <script>
+    // year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // simple theme toggle (persisted)
+    (function(){
+      const key = 'theme';
+      const prefersLight = window.matchMedia('(prefers-color-scheme: light)').matches;
+      const saved = localStorage.getItem(key);
+      const theme = saved || (prefersLight ? 'light' : 'dark');
+      if(theme === 'light') document.documentElement.setAttribute('data-theme','light');
+
+      // Add a quick toggle button into header actions (mobile friendly)
+      const actions = document.querySelector('.actions');
+      const toggle = document.createElement('button');
+      toggle.className = 'btn ghost hide-desktop';
+      toggle.textContent = theme === 'light' ? 'Dark Mode' : 'Light Mode';
+      toggle.addEventListener('click', () => {
+        const isLight = document.documentElement.getAttribute('data-theme') === 'light';
+        document.documentElement.setAttribute('data-theme', isLight ? '' : 'light');
+        localStorage.setItem(key, isLight ? 'dark' : 'light');
+        toggle.textContent = isLight ? 'Light Mode' : 'Dark Mode';
+      });
+      actions.parentNode.insertBefore(toggle, actions.nextSibling);
+    })();
+  </script>
+</body>
+</html>
