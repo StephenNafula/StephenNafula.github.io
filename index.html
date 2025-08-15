@@ -247,6 +247,9 @@
   </div>
 </section>
 
+
+
+
 <!-- ================= Services ================= -->
 <section class="py-16 bg-gradient-to-r from-purple-950 via-black to-green-950" id="services">
   <div class="container mx-auto px-6">
@@ -271,6 +274,32 @@
   </div>
 </section>
 
+<!-- Chatbot Floating Button -->
+<button id="chatbot-btn" onclick="toggleChatbot()" 
+  class="fixed bottom-5 right-5 bg-purple-600 text-white p-4 rounded-full shadow-lg hover:bg-purple-700 transition">
+  🤖
+</button>
+
+<!-- Chatbot Window -->
+<div id="chatbot-window" class="fixed bottom-20 right-5 bg-gray-900 text-white w-80 rounded-lg shadow-lg hidden">
+  <div class="flex justify-between items-center bg-purple-600 px-4 py-2 rounded-t-lg">
+    <span class="font-bold">🤖 Chat with me</span>
+    <button onclick="toggleChatbot()" class="text-white font-bold">✖</button>
+  </div>
+  
+  <div id="chatbot-messages" class="p-3 h-64 overflow-y-auto space-y-2 text-sm">
+    <!-- Messages will appear here -->
+  </div>
+
+  <div class="p-3 flex items-center space-x-2 border-t border-gray-700">
+    <input id="chatbot-input" type="text" placeholder="Type a message..." 
+      class="flex-1 p-2 rounded bg-gray-800 border border-gray-700 outline-none text-white text-sm">
+    <button onclick="sendMessage()" class="bg-purple-600 px-3 py-1 rounded hover:bg-purple-700">➤</button>
+  </div>
+</div>
+
+
+
 <!-- ================= Testimonials ================= -->
 <section class="py-16 bg-black/80" id="testimonials">
   <div class="container mx-auto px-6 text-center" data-aos="fade-up">
@@ -281,6 +310,32 @@
     <p class="text-green-400 mt-4 font-semibold">– John Doe, Cybersecurity Lead</p>
   </div>
 </section>
+
+<!-- Rating Section -->
+<section class="py-10 bg-gradient-to-r from-green-500 via-purple-500 to-indigo-600 text-white">
+  <div class="max-w-md mx-auto text-center p-6 rounded-lg bg-white/10 backdrop-blur-sm shadow-lg">
+    <h2 class="text-2xl font-bold mb-4">Rate My Portfolio</h2>
+
+    <!-- Stars -->
+    <div id="rating" class="flex justify-center space-x-3">
+      <button class="star text-3xl cursor-pointer transition-transform hover:scale-125">⭐</button>
+      <button class="star text-3xl cursor-pointer transition-transform hover:scale-125">⭐</button>
+      <button class="star text-3xl cursor-pointer transition-transform hover:scale-125">⭐</button>
+      <button class="star text-3xl cursor-pointer transition-transform hover:scale-125">⭐</button>
+      <button class="star text-3xl cursor-pointer transition-transform hover:scale-125">⭐</button>
+    </div>
+
+    <!-- Emoji Feedback -->
+    <div id="emojiFeedback" class="text-5xl mt-4 text-yellow-300">🤔</div>
+
+    <!-- Thank You / Instruction Message -->
+    <p id="thankYouMsg" class="mt-2 text-sm text-white">Click a star to rate!</p>
+  </div>
+</section>
+
+
+
+
 
 <!-- ================= Footer / Contact ================= -->
 <footer class="bg-gradient-to-r from-purple-900 via-black to-green-800 text-white py-14" id="contact">
@@ -315,6 +370,57 @@
     </form>
 
     <p id="statusMessage" class="mt-4 text-sm"></p>
+
+
+<!-- Floating Support Popup -->
+<div id="support-popup" 
+  class="fixed bottom-20 left-5 bg-gradient-to-br from-purple-800 via-gray-900 to-green-800 
+  text-white p-4 rounded-xl shadow-2xl w-72 opacity-0 translate-y-5 pointer-events-none 
+  transition-all duration-500 border border-green-400/40 backdrop-blur-md">
+
+  <!-- Header -->
+  <div class="flex justify-between items-center mb-3">
+    <h3 class="text-lg font-bold text-green-300">☕ Buy me a coffee</h3>
+    <button onclick="toggleSupportPopup()" 
+      class="text-gray-400 hover:text-white font-bold transition">✖</button>
+  </div>
+
+  <!-- Thank You Note -->
+  <p class="text-sm mb-3 text-purple-300 italic">
+    Every coffee keeps this portfolio alive ☕💚
+  </p>
+
+  <!-- Phone -->
+  <div class="mb-3">
+    <p class="text-sm mb-1">📱 Send Money:</p>
+    <div class="flex items-center justify-between bg-gray-800/70 p-2 rounded-lg border border-green-400/30">
+      <span id="phone-number">0769173792</span>
+      <button onclick="copyToClipboard('phone-number', this)" 
+        class="text-green-400 hover:text-green-200 transition">📋</button>
+    </div>
+  </div>
+
+  <!-- Till -->
+  <div>
+    <p class="text-sm mb-1">💳 Lipa na Mpesa (Till):</p>
+    <div class="flex items-center justify-between bg-gray-800/70 p-2 rounded-lg border border-purple-400/30">
+      <span id="till-number">3440018</span>
+      <button onclick="copyToClipboard('till-number', this)" 
+        class="text-purple-400 hover:text-purple-200 transition">📋</button>
+    </div>
+  </div>
+</div>
+
+<!-- Floating Button -->
+<button id="support-btn" onclick="toggleSupportPopup()" 
+  class="fixed bottom-5 left-5 bg-gradient-to-r from-green-500 to-purple-600 
+  text-white px-4 py-3 rounded-full shadow-lg hover:scale-105 transition flex items-center space-x-2">
+  <span>☕</span>
+  <span class="font-semibold">Buy me a coffee</span>
+</button>
+
+
+
 
     <p class="text-sm mt-6">© 2025 Stephen Mwaniki Mleghwa · Portfolio</p>
   </div>
@@ -423,13 +529,132 @@
   //   localStorage.removeItem("profilePic"); // clear from storage
   //   profileUpload.value = ""; // clear file input
   // });
+
+
+</script>
+
+
+
+<script>
+  const chatbotWindow = document.getElementById("chatbot-window");
+  const chatbotMessages = document.getElementById("chatbot-messages");
+
+  function toggleChatbot() {
+    chatbotWindow.classList.toggle("hidden");
+
+    if (!chatbotWindow.classList.contains("hidden")) {
+      // Auto greeting when opened
+      addBotMessage("👋 Hi there! Need help or want to say hi?");
+    }
+  }
+
+  function addBotMessage(text) {
+    const message = document.createElement("div");
+    message.className = "bg-gray-800 p-2 rounded w-fit max-w-[70%]";
+    chatbotMessages.appendChild(message);
+
+    // Typing effect
+    let i = 0;
+    function typingEffect() {
+      if (i < text.length) {
+        message.innerHTML += text.charAt(i);
+        i++;
+        setTimeout(typingEffect, 40);
+      }
+    }
+    typingEffect();
+
+    chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+  }
+
+  function addUserMessage(text) {
+    const message = document.createElement("div");
+    message.className = "bg-purple-600 p-2 rounded w-fit max-w-[70%] ml-auto";
+    message.textContent = text;
+    chatbotMessages.appendChild(message);
+    chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+  }
+
+  function sendMessage() {
+    const input = document.getElementById("chatbot-input");
+    const text = input.value.trim();
+    if (text) {
+      addUserMessage(text);
+      input.value = "";
+
+      // Simulate bot reply
+      setTimeout(() => {
+        addBotMessage("🤖 Got it! Thanks for your message.");
+      }, 1000);
+    }
+  }
+
+</script>
+
+
+
+
+<script>
+  const supportPopup = document.getElementById("support-popup");
+
+  // Toggle Popup with fade + slide animation
+  function toggleSupportPopup() {
+    if (supportPopup.classList.contains("opacity-0")) {
+      supportPopup.classList.remove("opacity-0", "translate-y-5", "pointer-events-none");
+    } else {
+      supportPopup.classList.add("opacity-0", "translate-y-5", "pointer-events-none");
+    }
+  }
+
+  // Copy with animation
+  function copyToClipboard(elementId, btn) {
+    const text = document.getElementById(elementId).innerText;
+    navigator.clipboard.writeText(text).then(() => {
+      btn.innerHTML = "✅";
+      setTimeout(() => {
+        btn.innerHTML = "📋";
+      }, 2000);
+    });
+  }
+</script>
+
+
+
+
+
+<!-- Script -->
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const stars = document.querySelectorAll(".star");
+  const feedback = document.getElementById("emojiFeedback");
+  const thankYouMsg = document.getElementById("thankYouMsg");
+
+  const emojis = ["😭", "😞", "😐", "😊", "🤩"];
+  const messages = [
+    "We'll work harder!",
+    "Thanks, could be better!",
+    "Appreciate it!",
+    "Glad you liked it!",
+    "Awesome! Thank you!"
+  ];
+
+  stars.forEach((star, index) => {
+    star.addEventListener("click", () => {
+      feedback.textContent = emojis[index];
+      feedback.classList.add("scale-125");
+      setTimeout(() => feedback.classList.remove("scale-125"), 300);
+
+      thankYouMsg.textContent = messages[index];
+      thankYouMsg.classList.add("font-semibold", "text-yellow-300");
+    });
+  });
+});
 </script>
 
 
 
 </body>
 </html>
-
 
 
 
